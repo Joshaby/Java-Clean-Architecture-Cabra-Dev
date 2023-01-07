@@ -12,13 +12,12 @@ public class RegistrationFactory {
                                String registrationNumber, String registrationAt) {
 
         LocalDateTime birthDateLocalDateTime = LocalDateTime.parse(
-                birthDate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                birthDate, DateTimeFormatter.ISO_DATE);
 
         LocalDateTime registrationAtDateTime = LocalDateTime.parse(
-                registrationAt, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                registrationAt, DateTimeFormatter.ISO_DATE);
 
-        Registration registration = new Registration();
-        return registration
+        return new Registration()
                 .setName(name)
                 .setEmail(new Email(email))
                 .setBirthDate(birthDateLocalDateTime)

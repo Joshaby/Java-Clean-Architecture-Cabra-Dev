@@ -18,15 +18,15 @@ public class LocalStorageAdapter implements Storage {
 
     @Override
     public void store(String filename, String path, String content) throws IOException {
-        System.out.println(content);
-        File file = new File(path + File.separator + filename + ".html");
+        String fileNameWithoutExtension = filename.substring(0, filename.length() - 4);
+        File file = new File( path + fileNameWithoutExtension + ".html");
         FileWriter fileWriter = new FileWriter(file);
         if (!file.createNewFile()) {
             fileWriter.write("");
         }
         fileWriter.write(content);
         fileWriter.close();
-        HtmlConverter.convertToPdf(new File(path + File.separator + filename + ".html"),
-                new File(path + File.separator + filename + ".pdf"));
+        HtmlConverter.convertToPdf(new File(path + fileNameWithoutExtension + ".html"),
+                new File(path + filename));
     }
 }

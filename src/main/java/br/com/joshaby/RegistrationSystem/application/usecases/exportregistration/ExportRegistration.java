@@ -28,8 +28,8 @@ public class ExportRegistration {
         Registration registration = repository.loadByRegistrationNumber(cpf);
 
         String fileContent = converter.generate(registration);
-        storage.store(input.getPdfFileName(), input.getPath(), fileContent);
+        storage.store(input.getPdfFileName(), input.getPath() + File.separator, fileContent);
 
-        return new OutputBoundary(input.getPath() + File.separator + input.getPdfFileName() + ".pdf");
+        return new OutputBoundary(input.getPath() + File.separator + input.getPdfFileName());
     }
 }

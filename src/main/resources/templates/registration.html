@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Registration</title>
+</head>
+<body>
+    <h1>Registration</h1>
+    <p>Name: <span th:text="${registration.name}"></span></p>
+    <p>Email: <span th:text="${registration.email.value()}"></span></p>
+    <p>Birthdate: <span th:text="${#temporals.format(registration.birthDate, 'dd-MM-yyyy HH:mm')}"></span></p>
+    <p>Registration number: <span th:text="${registration.registrationNumber.value()}"></span></p>
+    <p>Registration at: <span th:text="${#temporals.format(registration.registrationAt, 'dd-MM-yyyy HH:mm')}"></span></p>
+</body>
+</html>

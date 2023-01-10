@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Paths;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +20,7 @@ public class LocalStorageAdapter implements Storage {
     public void store(String filename, String path, String content) throws IOException {
 
         String fileNameWithoutExtension = filename.substring(0, filename.length() - 4);
-        File file = new File( path + fileNameWithoutExtension + ".html");
+        File file = new File(path + fileNameWithoutExtension + ".html");
         FileWriter fileWriter = new FileWriter(file);
         if (!file.createNewFile()) {
             fileWriter.write("");

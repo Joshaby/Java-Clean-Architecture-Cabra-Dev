@@ -4,8 +4,8 @@ import br.com.joshaby.RegistrationSystem.domain.entities.registration.Registrati
 import br.com.joshaby.RegistrationSystem.domain.entities.registration.RegistrationFactory;
 import br.com.joshaby.RegistrationSystem.domain.repositories.LoadRegistrationRepository;
 import br.com.joshaby.RegistrationSystem.domain.valueobjects.Cpf;
-import br.com.joshaby.RegistrationSystem.infra.models.registration.RegistrationModel;
 import br.com.joshaby.RegistrationSystem.infra.models.exceptions.RegistrationModelException;
+import br.com.joshaby.RegistrationSystem.infra.models.registration.RegistrationModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

@@ -8,6 +8,7 @@ import br.com.joshaby.RegistrationSystem.domain.valueobjects.Cpf;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 public class ExportRegistration {
 
@@ -28,8 +29,14 @@ public class ExportRegistration {
         Registration registration = repository.loadByRegistrationNumber(cpf);
 
         String fileContent = converter.generate(registration);
-        storage.store(input.getPdfFileName(), input.getPath() + File.separator, fileContent);
+        String path = "";
+        if (input.getPath() == null || input.getPath().isBlank()) {
+            path = Paths.get("").toAbsolutePath().toString() + File.separator + "pdf/";
+        } else {
+            path = input.getPath() + File.separator;
+        }
+        storage.store(input.getPdfFileName(), path, fileContent);
 
-        return new OutputBoundary(input.getPath() + File.separator + input.getPdfFileName());
+        return new OutputBoundary(path + input.getPdfFileName());
     }
 }
